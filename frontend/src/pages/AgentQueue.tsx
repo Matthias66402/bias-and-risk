@@ -28,7 +28,7 @@ export default function AgentQueue() {
           {list.data?.length === 0 && <p className="muted">Keine Einträge.</p>}
           {list.data?.map((q) => (
             <button key={q.queue_id} onClick={() => setSelected(q)} className="card" style={{ textAlign: "left", outline: selected?.queue_id === q.queue_id ? "2px solid var(--accent)" : undefined }}>
-              <div className="row"><Pill tone={q.is_holdout ? "info" : "warning"}>{q.route_reason.replace(/_/g, " ")}</Pill><small>{new Date(q.created_at).toLocaleString("de-DE")}</small></div>
+              <div className="row"><strong>#{q.queue_id}</strong><Pill tone={q.is_holdout ? "info" : "warning"}>{q.route_reason.replace(/_/g, " ")}</Pill><small>{new Date(q.created_at).toLocaleString("de-DE")}</small></div>
               <div style={{ marginTop: 4 }}>{q.message.slice(0, 110)}{q.message.length > 110 ? " …" : ""}</div>
             </button>
           ))}
@@ -63,7 +63,7 @@ function Review({ item, onDone }: { item: QueueItem; onDone: () => void }) {
   return (
     <div className="card stack">
       <div>
-        <h3>Anfrage</h3>
+        <h3>Anfrage <small className="muted">#{item.queue_id}</small></h3>
         <div className="pre">{item.message}</div>
         <small>Sichtbare Merkmale: {Object.entries(item.visible_attributes).map(([k, v]) => `${meta.attributes[k]?.label}: ${meta.attributes[k]?.values[v] ?? v}`).join(" · ") || "–"}</small>
       </div>
