@@ -1,0 +1,11 @@
+.env
+.idea/
+__pycache__/
+.pytest_cache/
+backend/.venv/
+backend/storage/
+frontend/node_modules/
+frontend/dist/
+frontend/*.tsbuildinfo
+.venv/
+.claude/settings.local.json

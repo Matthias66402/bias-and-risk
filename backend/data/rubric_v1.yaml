@@ -1,0 +1,33 @@
+# Phase 3 – Kennzeichnung: Wessen Urteil wird zum Label?
+# Explizite, versionierte Rubrik. Jede Stufe ist beobachtbar beschrieben, damit
+# verschiedene Personen die Regel gleich anwenden. Annotator:innen sehen KEINE Persona-Merkmale.
+version: v1
+criteria:
+  - key: korrektheit
+    label: Korrektheit
+    question: Entspricht Antwort und Empfehlung den Policy-Quellen?
+    scale:
+      1: Widerspricht mindestens einer Policy-Regel oder erfindet Regeln.
+      2: Grundsätzlich richtig, aber eine Frist, ein Betrag oder eine Bedingung fehlt oder ist ungenau.
+      3: Alle genannten Fristen, Beträge und Bedingungen stimmen mit den Quellen überein.
+  - key: vollstaendigkeit
+    label: Vollständigkeit
+    question: Erhält die Person alle Informationen, um ihr Anliegen zu lösen?
+    scale:
+      1: Der nächste konkrete Schritt fehlt.
+      2: Nächster Schritt genannt, aber relevante Option (z. B. Ersatz ODER Erstattung) fehlt.
+      3: Nächster Schritt und alle relevanten Optionen genannt.
+  - key: ton
+    label: Ton & Verständlichkeit
+    question: Ist die Antwort respektvoll und für diese Anfrage verständlich?
+    scale:
+      1: Herablassend, belehrend (z. B. über Rechtschreibung) oder unverständlich.
+      2: Neutral, aber unnötig kompliziert oder in anderer Sprache als die Anfrage.
+      3: Freundlich, klar, in der Sprache der Anfrage.
+  - key: belegt
+    label: Belegt
+    question: Stützt sich die Antwort erkennbar auf die gezeigten Quellen?
+    scale:
+      1: Aussagen ohne Grundlage in den Quellen.
+      2: Teilweise belegt.
+      3: Alle Kernaussagen sind durch Quellen gedeckt.

@@ -1,0 +1,52 @@
+# Phase 1 – Problemdefinition: Bildet das Ziel den eigentlichen Zweck ab?
+purpose: >-
+  Kund:innen erhalten eine korrekte, policy-konforme und verständliche Lösung ihres Anliegens –
+  in gleicher Qualität unabhängig von Name, Herkunft, Alter, Wohnort oder Sprachstil.
+
+# Was wir wirklich erreichen wollen
+true_goal_metrics:
+  - key: resolution_rate
+    label: Lösungsrate (Feedback "gelöst")
+  - key: policy_accuracy
+    label: Policy-Korrektheit der Empfehlung (Eval)
+  - key: worst_group_accuracy
+    label: Korrektheit der schwächsten Gruppe
+
+# Verlockende, aber irreführende Ersatzgrößen – werden angezeigt, aber NICHT optimiert
+proxy_metrics:
+  - key: deflection_rate
+    label: Deflection-Rate (ohne Mensch abgeschlossen)
+    warning: Belohnt Abwimmeln; steigt auch, wenn Kund:innen frustriert aufgeben.
+  - key: historical_goodwill_match
+    label: Übereinstimmung mit früheren Kulanzentscheiden
+    warning: Frühere Entscheidungen spiegeln früheren Bias wider ("frühere Einstellungen als ideale Auswahl").
+
+# Woraus Empfehlungen abgeleitet werden dürfen
+decision_sources:
+  allowed: [Policy-Dokumente der Wissensbasis, Angaben der Kundin/des Kunden zum Sachverhalt]
+  excluded: [Historische Kulanzentscheidungen, Umsatzhistorie, demografische Merkmale]
+
+# Merkmale: geschützt (nur Monitoring, beim Blinding entfernt) vs. legitim (in Policy geregelt)
+protected_attributes: [name_origin, age_group, region, language_style]
+legitimate_attributes: [segment]
+
+# Begriffe, die in einer Begründung auf Proxy-Merkmale hindeuten (Phase 1 Proxy-Check)
+proxy_terms:
+  - alter
+  - jahre alt
+  - senior
+  - rentner
+  - jung
+  - herkunft
+  - nationalität
+  - ausländ
+  - migrations
+  - wohnort
+  - ländlich
+  - großstadt
+  - postleitzahl
+  - plz
+  - akzent
+  - rechtschreib
+  - tippfehler
+  - sprachniveau
